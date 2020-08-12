@@ -1,0 +1,57 @@
+# Command to run docker-compose up
+
+version: '3'
+services:
+  # This will download Postgres and set following properties
+  # hostname: postgres
+  # username is passed in command
+  # password is passed in command
+  # and will create database with name 'giddh-local'
+  # for persisting data it will create folder 'pgdata' in present working directory
+  # for creating database and tables it will copy '00_init.sql' to docker container and will run those scripts at the time of creating docker container
+#  postgres:
+#    container_name: postgres
+#    image: postgres:10.8
+#    hostname: postgres
+#    environment:
+#      # pick from file name
+#      - POSTGRES_USER=${POSTGRES_USER}
+#      - POSTGRES_DB=${POSTGRES_DB}
+#    ports:
+#      - '5432:5432'
+#    volumes:
+#      - ./dockerdata/pgdata:/var/lib/postgresql/data
+#      - ../.local/00_init.sql:/docker-entrypoint-initdb.d/00_init.sql
+#      # Uncomment the below line if you have data to be restored.
+#      # - ../.local/01_restore.sql:/docker-entrypoint-initdb.d/01_restore.sql
+
+
+
+  # This will download memcached
+  memcached:
+    container_name: memcached
+    image: memcached
+    ports:
+      - '11211:11211'
+  postgres:
+    container_name: pgdb
+    image: postgres:10.8
+    hostname: postgres
+    environment:
+      # pick from file name
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./dockerdata/pgdata:/var/lib/postgresql/data
+      - ./docker-entrypoint-initdb.d/00_init.sql
+  springboot-docker-compose-app-container:
+      image:  hackernews-app:base
+
+      build:
+        context: ./
+        dockerfile: Dockerfile
+      ports:
+        - "8080:8080"

@@ -1,0 +1,3 @@
+CREATE USER postgres WITH PASSWORD 'postgres';
+CREATE DATABASE newsdb;
+GRANT ALL PRIVILEGES ON DATABASE newsdb TO postgres;
