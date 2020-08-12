@@ -13,7 +13,11 @@
 
         })
 package com.example.demo.repositories;
-
+/***
+ * @author Aditya Soni( adityasoni182@gmail.com )
+ * @version v1
+ * @since 12 August 2020
+ */
 import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
 import org.jadira.usertype.dateandtime.joda.PersistentLocalDate;

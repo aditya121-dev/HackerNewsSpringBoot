@@ -10,7 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
+/***
+ * @author Aditya Soni( adityasoni182@gmail.com )
+ * @version v1
+ * @since 12 August 2020
+ */
 @Controller
 @RequestMapping(value = "/news")
 public class MainController {
@@ -21,6 +25,12 @@ public class MainController {
         this.newsService = newsService;
     }
 
+    /***
+     * This API is used to get the top ten best stories from hacker news API .
+     * This API is also cached for 15 minutes.
+     * @return
+     * @throws Exception
+     */
     @RequestMapping(value = "/best-stories", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ApiResponse> getBestStories() throws Exception {
 

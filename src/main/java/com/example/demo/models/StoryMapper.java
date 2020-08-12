@@ -13,7 +13,11 @@ import org.joda.time.LocalDateTime;
 
 import java.io.Serializable;
 import java.util.List;
-
+/***
+ * @author Aditya Soni( adityasoni182@gmail.com )
+ * @version v1
+ * @since 12 August 2020
+ */
 @Getter
 @Setter
 @NoArgsConstructor

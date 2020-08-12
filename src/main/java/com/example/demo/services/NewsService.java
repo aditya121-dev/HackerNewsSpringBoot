@@ -19,6 +19,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
+/***
+ * @author Aditya Soni( adityasoni182@gmail.com )
+ * @version v1
+ * @since 12 August 2020
+ */
 @Service
 public class NewsService {
 
@@ -38,6 +43,13 @@ public class NewsService {
     private static final String STORIES_KEY = "topStories";
     private static final String USER_API = "https://hacker-news.firebaseio.com/v0/user/{}.json?print=pretty";
 
+    /**
+     * This function is used to get top ten best news stories based on user comments list.
+     * This also save the stories to db and cache them in memcached for 15 min.
+     *
+     * @return
+     * @throws Exception
+     */
     @Transactional(rollbackFor = Throwable.class)
     public Object getTopTenBestNewsStories() throws Exception {
 
@@ -117,6 +129,12 @@ public class NewsService {
         return mapStoryModelToMapper(storyModels);
     }
 
+    /**
+     * This function is used to map story model to story mapper class.
+     *
+     * @param storyModels
+     * @return
+     */
     public List<StoryMapper> mapStoryModelToMapper(List<StoryModel> storyModels) {
         List<StoryMapper> storyMapperList;
         if (CollectionUtils.isEmpty(storyModels)) {

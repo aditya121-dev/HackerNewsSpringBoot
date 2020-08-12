@@ -12,7 +12,11 @@ import org.springframework.data.redis.cache.RedisCacheWriter;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
-
+/***
+ * @author Aditya Soni( adityasoni182@gmail.com )
+ * @version v1
+ * @since 12 August 2020
+ */
 @Configuration
 @EnableCaching
 public class CacheConfig extends AbstractSSMConfiguration {

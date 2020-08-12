@@ -9,7 +9,11 @@ import lombok.Setter;
 
 import java.io.Serializable;
 
-
+/***
+ * @author Aditya Soni( adityasoni182@gmail.com )
+ * @version v1
+ * @since 12 August 2020
+ */
 @Getter
 @Setter
 @AllArgsConstructor

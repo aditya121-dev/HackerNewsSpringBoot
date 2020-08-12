@@ -5,7 +5,11 @@ import com.example.demo.repositories.StoryRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+/***
+ * @author Aditya Soni( adityasoni182@gmail.com )
+ * @version v1
+ * @since 12 August 2020
+ */
 @Service
 public class StoryUtilService {
 
